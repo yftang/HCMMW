@@ -27,6 +27,8 @@ end
 group :test do
   gem 'rspec', '~> 2.11.0'
   gem 'webrat', '~> 0.7.3'
+  gem 'guard-rspec', '~> 1.2.1'
+  gem 'guard', '~> 1.3.0'
 end
 
 gem 'jquery-rails'
