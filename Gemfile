@@ -22,6 +22,9 @@ end
 
 group :developmet do
   gem 'rspec-rails', '~> 2.11.0'
+  gem 'libnotify'
+  gem 'guard-rspec', '~> 1.2.1'
+  gem 'guard', '~> 1.3.0'
 end
 
 group :test do
