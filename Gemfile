@@ -25,6 +25,7 @@ group :developmet do
   gem 'libnotify'
   gem 'guard-rspec', '~> 1.2.1'
   gem 'guard', '~> 1.3.0'
+  gem 'annotate', '~> 2.5.0'
 end
 
 group :test do
