@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'gravatar_image_tag', '~> 1.1.3'
 
 
 # Gems used only for assets and not required
@@ -26,6 +27,7 @@ group :developmet do
   gem 'guard-rspec', '~> 1.2.1'
   gem 'guard', '~> 1.3.0'
   gem 'annotate', '~> 2.5.0'
+  gem 'factory_girl_rails', '~> 4.0.0'
 end
 
 group :test do
@@ -33,6 +35,7 @@ group :test do
   gem 'webrat', '~> 0.7.3'
   gem 'guard-rspec', '~> 1.2.1'
   gem 'guard', '~> 1.3.0'
+  gem 'factory_girl_rails', '~> 4.0.0'
 end
 
 gem 'jquery-rails'
