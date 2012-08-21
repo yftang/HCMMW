@@ -51,6 +51,21 @@ describe UsersController do
                                             :content => "Next")
       end
     end
+
+    describe "who are not admin" do
+      it "should not have delete links" do
+        get :index
+        response.should_not have_selector("a", :content => "delete")
+      end
+    end
+
+    describe "who are admin" do
+      it "should have delete links" do
+        @user = test_sign_in(FactoryGirl.create(:user, :admin => true))
+        get :index
+        response.should have_selector("a", :content => "delete")
+      end
+    end
   end
 
   describe "GET 'new'" do
@@ -320,13 +335,19 @@ describe UsersController do
 
     describe "as an admin user" do
       before(:each) do
-        admin = FactoryGirl.create(:user,
+        @admin = FactoryGirl.create(:user,
                                    :email => "admin@example.com",
                                    :admin => true)
-        test_sign_in(admin)
+        test_sign_in(@admin)
       end
 
-      it "should destroy the user" do
+      it "should not destroy himself" do
+        lambda do
+          delete :destroy, :id => @admin
+        end.should_not change(User, :count)
+      end
+
+      it "should destroy the non-admin user" do
         lambda do
           delete :destroy, :id => @user
         end.should change(User, :count).by(-1)
