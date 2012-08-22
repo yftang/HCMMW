@@ -8,5 +8,6 @@ class CreateExperiments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :experiments, :user_id
   end
 end
