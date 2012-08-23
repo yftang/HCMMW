@@ -109,6 +109,14 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar")
     end
+
+    it "should show the user's experiments" do
+      exp1 = FactoryGirl.create(:experiment, :user => @user, :description => "Foo bar")
+      exp2 = FactoryGirl.create(:experiment, :user => @user, :description => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector("span.description", :content => exp1.description)
+      response.should have_selector("span.description", :content => exp2.description)
+    end
   end
 
   describe "GET 'new'" do

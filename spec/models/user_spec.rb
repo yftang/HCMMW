@@ -164,4 +164,27 @@ describe User do
       @user.should be_admin
     end
   end
+
+  describe "experiment associations" do
+    before(:each) do
+      @user = User.create(@attr)
+      @exp1 = FactoryGirl.create(:experiment, :user => @user, :created_at => 1.day.ago)
+      @exp2 = FactoryGirl.create(:experiment, :user => @user, :created_at => 1.hour.ago)
+    end
+
+    it "should have an expriments attribute" do
+      @user.should respond_to(:experiments)
+    end
+
+    it "should have the right experiments in the right order" do
+      @user.experiments.should == [@exp2, @exp1]
+    end
+
+    it "should destroy associated experiments" do
+      @user.destroy
+      [@exp1, @exp2].each do |exp|
+        Experiment.find_by_id(exp.id).should be_nil
+      end
+    end
+  end
 end

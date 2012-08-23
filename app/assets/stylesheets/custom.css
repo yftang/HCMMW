@@ -117,24 +117,34 @@ footer nav {
 
 /*User show page*/
 
-table.profile {
+.profile {
   width: 100%;
   margin-bottom: 0;
 }
 
-td.main {
-  width: 70%;
+.profile-header {
   padding: 1em;
+  margin: 10px;
+  height: 50px;
 }
 
-td.sidebar {
+.profile-header div.name {
+  width: 70%;
+  float: left;
+}
+
+.profile-header div.sidebar {
   width: 30%;
-  padding: 1em;
+  float: right;
   vertical-align: top;
   background: #ffc;
 }
 
-.profile img.grava {
+.profile-body {
+  margin-top: 15px;
+}
+
+.profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
@@ -194,4 +204,54 @@ ul.users {
 
 .users li {
   list-style: none;
+}
+
+/* Pagination */
+
+.pagination {
+  float: right;
+}
+
+/* Experiments */
+
+.experiments div div.gravatar {
+  border-top: 1px solid #ccc;
+  width: 50px;
+}
+
+.experiment {
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.experiment span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+
+div.user_info span.experiemnts {
+  font-size: 80%;
+}
+
+form.new_experiment {
+  margin-bottom: 2em;
+}
+
+form.new_experiment textarea {
+  height: 4em;
+  margin-bottom: 0;
 }

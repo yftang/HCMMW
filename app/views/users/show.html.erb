@@ -1,14 +1,28 @@
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
+<div class="profile" summary="Profile information">
+  <div class="profile-header">
+    <div class="name">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-    </td>
-    <td class="sidebar round">
+    </div>
+    <div class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
-    </td>
-  </tr>
-</table>
+      <strong>Experiments</strong> <%= @user.experiments.count %>
+    </div>
+  </div>
+  <hr />
+  <div class="profile-body">
+    <div colspan="2">
+      <% if @user.experiments.empty? %>
+        <a href="#">Start your first experiment</a>
+      <% else %>
+        <div class="experiments" summary="User experiments">
+          <%= render @experiments %>
+        </div>
+        <%= will_paginate @experiments %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -14,5 +14,13 @@
 class Experiment < ActiveRecord::Base
   attr_accessible :description, :input, :output, :user_id
 
+  belongs_to :user
+
+  validates :description, :presence => true,
+                          :length => { :maximum => 40 }
+  validates :user_id,     :presence => true
+
   mount_uploader :input, InputUploader
+
+  default_scope :order => 'experiments.created_at DESC'
 end
