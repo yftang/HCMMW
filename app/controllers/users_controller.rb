@@ -10,10 +10,6 @@ class UsersController < ApplicationController
     @users = User.paginate(:page => params[:page])
   end
 
-  def new
-    @title = "Sign up"
-  end
-
   def show
     @user = User.find(params[:id])
     @experiments = @user.experiments.paginate(:page => params[:page])
@@ -65,9 +61,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def authenticate
-      deny_access unless signed_in?
-    end
 
     def correct_user
       @user = User.find(params[:id])

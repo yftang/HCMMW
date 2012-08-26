@@ -18,6 +18,7 @@
       <% if @user.experiments.empty? %>
         <a href="#">Start your first experiment</a>
       <% else %>
+        <a href="#">New experiment</a>
         <div class="experiments" summary="User experiments">
           <%= render @experiments %>
         </div>
