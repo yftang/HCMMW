@@ -259,3 +259,13 @@ form.new_experiment textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+.countdown {
+  display: inline;
+  padding-left: 100px;
+  color: gray;
+}
+
+.beyond_length {
+  color: red;
+}
