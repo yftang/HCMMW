@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'faker'
 
 describe ExperimentsController do
   render_views
@@ -39,7 +40,7 @@ describe ExperimentsController do
 
     describe "success" do
       before(:each) do
-        @attr = { :description => "Lorem ipsum", :input => "file" }
+        @attr = { :description => "Lorem ipsum" }
       end
 
       it "should create an experiment" do

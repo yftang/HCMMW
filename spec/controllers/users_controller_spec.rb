@@ -116,6 +116,27 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector("span.description", :content => exp1.description)
       response.should have_selector("span.description", :content => exp2.description)
+      response.should have_selector("div.sidebar", :content => "2")
+    end
+
+    describe "experiments show page" do
+      before(:each) do
+        40.times do
+          @user.experiments.create!(:description => Faker::Lorem.words(2).join(' '))
+        end
+      end
+
+      it "should paginate experiments" do
+        get :show, :id => @user
+        response.should have_selector("div.pagination")
+        response.should have_selector("span.disabled", :content => "Previous")
+        response.should have_selector("a",
+                                      :href => "/users/#{@user.id}?page=2",
+                                      :content => "2")
+        response.should have_selector("a",
+                                      :href => "/users/#{@user.id}?page=2",
+                                      :content => "Next")
+      end
     end
   end
 
