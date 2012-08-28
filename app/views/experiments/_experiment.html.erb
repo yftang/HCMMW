@@ -1,6 +1,16 @@
-<div class="experiment">
-  <span class="description"><%= experiment.description %></span>
-  <span class="timestamp">
-    Created <%= time_ago_in_words(experiment.created_at) %> ago.
-  </span>
-</div>
+<tr class="experiment">
+  <td>
+    <span class="description"><%= experiment.description %></span>
+    <span class="timestamp">
+      Created <%= time_ago_in_words(experiment.created_at) %> ago.
+    </span>
+  </td>
+  <% if current_user?(experiment.user) %>
+  <td>
+    <%= link_to 'Delete', experiment,
+                          :method => :delete,
+                          :confirm => "You sure?",
+                          :title => experiment.description %>
+  </td>
+  <% end %>
+</tr>

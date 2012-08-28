@@ -218,9 +218,10 @@ ul.users {
 
 /* Experiments */
 
-.experiments div div.gravatar {
+.experiments {
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
-  width: 50px;
 }
 
 .experiment {
