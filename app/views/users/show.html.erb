@@ -16,9 +16,9 @@
   <div class="profile-body">
     <div colspan="2">
       <% if @user.experiments.empty? %>
-        <a href="#">Start your first experiment</a>
+        <%= link_to 'Start your first experiment', '/experiments/new' %>
       <% else %>
-        <a href="#">New experiment</a>
+        <%= link_to 'New experiment', '/experiments/new' %>
         <div class="experiments" summary="User experiments">
           <%= render @experiments %>
         </div>
