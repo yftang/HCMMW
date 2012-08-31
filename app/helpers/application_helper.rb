@@ -7,11 +7,11 @@ module ApplicationHelper
 
   # return a title on a per-page basis.
   def title
-    base_title = "Heterogeneity Considered MiRNA Microarray Workflow | "
+    base_title = " | HCMMW"
     if @title.nil?
       base_title
     else
-      "#{base_title}#{@title}"
+      "#{@title}#{base_title}"
     end
   end
 end

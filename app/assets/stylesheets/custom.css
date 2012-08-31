@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #369;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
 
 header img {
   padding: 1em;
-  background: #fff;
+/*  background: #fff;*/
 }
 
 section {
@@ -49,9 +49,13 @@ nav {
 }
 
 nav {
-  background-color: white;
+/*  background-color: white;*/
   padding: 0 0.7em;
   white-space: nowrap;
+}
+
+nav a {
+  color: white!important;
 }
 
 nav ul {

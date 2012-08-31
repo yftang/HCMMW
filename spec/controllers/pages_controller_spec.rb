@@ -4,7 +4,7 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_title = "Heterogeneity Considered MiRNA Microarray Workflow | "
+    @base_title = " | HCMMW"
   end
 
   describe "GET 'home'" do
@@ -17,7 +17,7 @@ describe PagesController do
       get 'home'
       response.should have_selector(
         "title",
-        :content => @base_title + "Home"
+        :content => "Home" + @base_title
       )
     end
   end
@@ -32,7 +32,7 @@ describe PagesController do
       get 'contact'
       response.should have_selector(
         "title",
-        :content => @base_title + "Contact"
+        :content => "Contact" + @base_title
       )
     end
   end
@@ -47,7 +47,7 @@ describe PagesController do
       get 'help'
       response.should have_selector(
         "title",
-        :content => @base_title + "Help"
+        :content => "Help" + @base_title
       )
     end
   end
