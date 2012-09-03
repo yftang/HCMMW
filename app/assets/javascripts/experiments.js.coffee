@@ -5,7 +5,6 @@
 window.remaining = 0
 
 jQuery ->
-  updateCountdown()
   $('#experiment_description').change(updateCountdown)
   $('#experiment_description').keyup(updateCountdown)
   $('#experiment_description').change(updateCreateButton)
