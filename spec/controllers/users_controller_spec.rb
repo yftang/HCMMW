@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'faker'
 
 describe UsersController do
   render_views
@@ -82,7 +83,7 @@ describe UsersController do
 
   describe "GET 'show'" do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = test_sign_in(FactoryGirl.create(:user))
     end
 
     it "should be successful" do
@@ -249,7 +250,7 @@ describe UsersController do
       get :edit, :id => @user
       gravatar_url = "http://gravatar.com/emails"
       response.should have_selector("a",  :href => gravatar_url,
-                                          :content => "change")
+                                          :content => "Change your Gravatar image")
     end
   end
 

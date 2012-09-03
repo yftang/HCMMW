@@ -15,16 +15,20 @@
   <hr />
   <div class="profile-body">
     <div colspan="2">
-      <% if @user.experiments.empty? %>
-        <h3>
-          <%= link_to 'Start your first experiment', '/experiments/new' %>
-        </h3>
+      <% if current_user.admin? %>
+        <h3><%= link_to 'Manage users', users_path %></h3>
       <% else %>
-        <h3><%= link_to 'New experiment', '/experiments/new' %></h3>
-        <table class="experiments" summary="User experiments">
-          <%= render @experiments %>
-        </table>
-        <%= will_paginate @experiments %>
+        <% if @user.experiments.empty? %>
+          <h3>
+            <%= link_to 'Start your first experiment', '/experiments/new' %>
+          </h3>
+        <% else %>
+          <h3><%= link_to 'New experiment', '/experiments/new' %></h3>
+          <table class="experiments" summary="User experiments">
+            <%= render @experiments %>
+          </table>
+          <%= will_paginate @experiments %>
+        <% end %>
       <% end %>
     </div>
   </div>
