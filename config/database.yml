@@ -25,5 +25,5 @@ product:
   database: hcmmw_product
   host: localhost
   pool: 5
-  username: root
-  password: 594tyf
+  username: hcmmw
+  password: 
