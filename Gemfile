@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'pg'
 gem 'gravatar_image_tag', '~> 1.1.3'
 gem 'will_paginate', '~> 3.0.3'
 gem 'carrierwave', '~> 0.6.2'

@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120822030306) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "experiments", ["user_id"], :name => "index_experiments_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
